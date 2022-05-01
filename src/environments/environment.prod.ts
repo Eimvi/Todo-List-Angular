@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  URL: ''
+  URL: 'https://todo-nestjs-angular-eimvi.herokuapp.com/'
 };
