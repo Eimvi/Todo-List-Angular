@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/list');
         Swal.fire({
           icon: 'success',
-          title: 'Bivenido de nuevo:',
+          title: 'Bienvenido de nuevo:',
           text: resp.username,
           showConfirmButton: false,
           timer: 2000
