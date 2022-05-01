@@ -22,6 +22,11 @@ export class AuthGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      const jwToken: string = localStorage.getItem('token')!;
+      if (jwToken) {
+        return true;
+      }
+      this.router.navigateByUrl('/auth');
+      return false;
   }
 }
