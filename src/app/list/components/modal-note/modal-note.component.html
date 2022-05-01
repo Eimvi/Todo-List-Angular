@@ -1,0 +1,41 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form [formGroup]="form" (submit)="submit()" class="form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva Nota</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-outline py-4">
+            <label class="form-label fs-6 text-muted" for="form1Example13">Titulo</label>
+            <input formControlName="title" type="text" id="form1Example13" class="form-control form-control-lg fs-6"
+              placeholder="Hoy tengo que ...." />
+            <div class="text-danger small"
+              *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched">
+              *Titulo es requerido
+            </div>
+          </div>
+
+          <app-select [status]="status" [textFilter]="'Estado de nota: '" (filter)="setFilter($event)"></app-select>
+
+          <div class="form-outline mb-4">
+            <label class="form-label fs-6 text-muted" for="form1Example13">Mensaje</label>
+            <textarea formControlName="note" type="text" id="form1Example13" class="form-control form-control-lg fs-6"> </textarea>
+            <div class="text-danger small"
+              *ngIf="form.get('note')?.hasError('required') && form.get('note')?.touched">
+              *Mensaje es requerido
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="reset()">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="form.invalid" data-bs-dismiss="modal">Guardar Nota</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between my-3">
+  <div class="me-2 d-flex align-items-center">
+    <label class="fs-6 text-muted" for="form1Example13">{{ textFilter }}</label>
+  </div>
+  <div>
+    <select class="form-select" aria-label="Default select example" (change)="setData($event)">
+      <option *ngFor="let item of status | keyvalue" [value]="item.value">{{ item.value | titlecase }}</option>
+    </select>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.form input.ng-invalid.ng-touched {
+  border : 1px solid rgb(251, 91, 91);
+}
+
+.form textarea.ng-invalid.ng-touched {
+  border : 1px solid rgb(251, 91, 91);
+}
+
+.form input.required.ng-valid.ng-touched {
+  border :  1px solid rgb(119, 255, 119);
+}
+
+.form textarea.required.ng-valid.ng-touched {
+  border :  1px solid rgb(119, 255, 119);
+}

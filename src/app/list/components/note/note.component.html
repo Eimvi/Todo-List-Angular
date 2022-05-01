@@ -1,0 +1,52 @@
+<ng-container *ngIf="notesHtml.length > 0; else noNotes">
+  <div class="col-12" *ngFor="let item of notesHtml">
+    <div class="row">
+      <div class="col-12 p-2">
+        <article class="card h-100 {{item.filter}} text-white shadow-sm quotation ">
+
+          <div class="card-body ">
+            <div class="d-flex justify-content-between">
+              <!--             <img src="../../../../assets/images/image-daniel.jpg" alt="" srcset=""
+                class="border border-secondary border-3 rounded-circle"> -->
+              <div class="ps-lg-3">
+                <div class="d-flex justify-content-center align-items-center">
+                  <div class="d-flex justify-content-center align-items-center ">
+                    <img src="../../../../assets/svg/{{item.filter}}.svg" alt="estatus nota" srcset="">
+                  </div>
+                  <div class="ms-2">
+                    <h6 class="m-0 h6 fs-6"> {{item.title}} </h6>
+                  </div>
+                </div>
+                <hr class="dropdown-divider text-white">
+                <p class="m-0 h6"> {{ item.note }} </p>
+              </div>
+              <div class="w-auto py-2 px-3 rounded-2 d-flex justify-content-center align-items-center bg-hover"
+                (click)="deleteNote(item.id)">
+                <div >
+                  <img src="../../../../assets/svg/borrar.svg" alt="borrar nota">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+</ng-container>
+
+<ng-template #noNotes>
+  <article class="card h-100 bg-white text-white shadow-sm quotation">
+
+    <div class="card-body ">
+      <div class="d-flex ">
+        <div class="ps-lg-3">
+          <h6 class="m-0 h6 text-dark"> No hay mensajes :( prueba a crear uno.</h6>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</ng-template>

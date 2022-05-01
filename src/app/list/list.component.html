@@ -1,0 +1,42 @@
+
+
+<div class=" vh-100 row m-0 justify-content-center pt-5">
+  <div class="bg-white col-auto">
+    <div class="container d-flex align-items-center justify-content-center ">
+      <div class="row">
+        <div>
+          <div class="d-flex justify-content-center">
+            <h3>TODO LIST</h3>
+          </div>
+
+          <div class="d-flex justify-content-evenly p-2">
+              <div>
+                <button type="button" class="btn btn-danger" routerLink="/auth">Cerrar sesión</button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Crear mensaje
+                </button>
+              </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <app-select [status]="status" [textFilter]="'Filtros'" (filter)="filter($event)"></app-select>
+          </div>
+        </div>
+        <div>
+          <main class="container d-flex align-items-baseline justify-content-center alto-100 ">
+            <div class="row w-100">
+              <app-note (delete)="deleteNote($event)" [notes]="notes$ | async"></app-note>
+            </div>
+          </main>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-modal-note (createNote)="submit($event)"></app-modal-note>
+
+
+
