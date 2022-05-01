@@ -50,7 +50,7 @@ export class ListComponent implements OnInit {
       resp => {
         Swal.fire({
           icon: 'success',
-          title: 'Nota elimina con éxito.',
+          title: 'Nota eliminada con éxito.',
           showConfirmButton: false,
           timer: 2000
         });
