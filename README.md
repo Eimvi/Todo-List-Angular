@@ -6,7 +6,7 @@
 
 ## Menú Lista Bienvenida
 
-![image](https://user-images.githubusercontent.com/81714676/166169096-ce59a920-9677-4f05-977d-22a3c2cedfbb.png)
+![image](https://user-images.githubusercontent.com/81714676/166169414-2cb99619-861f-460a-9c3f-0691d99d94b3.png)
 
 ## Menú Lista
 
@@ -22,6 +22,19 @@
 ## Nota Guardada
 
 ![image](https://user-images.githubusercontent.com/81714676/166169207-61b667f6-9e53-43a6-a8e2-4eb19cfb4d1a.png)
+
+## Lista de Notas
+
+![image](https://user-images.githubusercontent.com/81714676/166169450-29e949b6-645f-42c0-ab05-2d1e89e3eb05.png)
+
+## Lista de Notas por Filtro
+
+![image](https://user-images.githubusercontent.com/81714676/166169466-67a4373c-f27b-4579-bfa4-9f4339693a88.png)
+
+
+## Eliminando Nota
+
+![image](https://user-images.githubusercontent.com/81714676/166169338-c5cab2b1-f2ad-4943-b29d-499d3422e8a2.png)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
