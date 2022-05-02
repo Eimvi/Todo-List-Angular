@@ -37,6 +37,11 @@
 ![image](https://user-images.githubusercontent.com/81714676/166169338-c5cab2b1-f2ad-4943-b29d-499d3422e8a2.png)
 
 
+### User Test Credentials:
+email: test@gmail.com
+password: test
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
 ## Development server
