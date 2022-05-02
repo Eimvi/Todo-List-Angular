@@ -8,6 +8,8 @@ import { InterceptorAuthService } from './core/interceptors/auth.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
 import { LoadingModule } from './shared/components/loading/loading.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,13 @@ import { LoadingModule } from './shared/components/loading/loading.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LoadingModule
+    LoadingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {
