@@ -2,17 +2,19 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { LoadingService } from '../services/loading.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptorAuthService implements HttpInterceptor {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loadingService: LoadingService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.loadingService.show();
     let reqClone: HttpRequest<any>;
     const jwToken:string = localStorage.getItem('token')!;
 
@@ -43,8 +45,9 @@ export class InterceptorAuthService implements HttpInterceptor {
           }
         }
       }),
-      catchError(this.errorResponse)
-      )
+      finalize(() => this.loadingService.hide()),
+      catchError(this.errorResponse),
+      );
   }
 
   errorResponse(error: HttpErrorResponse){
