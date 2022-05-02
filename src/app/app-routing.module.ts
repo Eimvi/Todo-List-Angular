@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
     redirectTo: 'auth',
     pathMatch: 'full'
   },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
 
 ];
 
