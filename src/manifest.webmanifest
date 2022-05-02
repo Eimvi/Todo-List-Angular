@@ -1,7 +1,7 @@
 {
   "name": "Angular Todo-List",
   "short_name": "Todo-List",
-  "theme_color": "#1976d2",
+  "theme_color": "#FFF9F9",
   "background_color": "#FFF9F9",
   "display": "standalone",
   "scope": "./",
