@@ -5,15 +5,20 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InterceptorAuthService } from './core/interceptors/auth.service';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SharedModule } from './shared/shared.module';
+import { LoadingModule } from './shared/components/loading/loading.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingModule
   ],
   providers: [
     {
