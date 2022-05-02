@@ -1,1 +1,111 @@
-<p>register works!</p>
+<section>
+  <div class="container h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="../../../../assets/svg/registro.svg" class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 pt-4">
+        <!-- Form -->
+        <form [formGroup]="form" (submit)="submit()" class="form">
+          <!-- Form Title -->
+          <h2>Registro de usuario</h2>
+
+          <!-- Group Username -->
+          <div class="form-outline">
+            <!-- Username label -->
+            <label class="form-label fs-6 text-light pt-2" for="form1Example13">Username</label>
+            <!-- Username input -->
+            <input formControlName="username" type="text" id="form1Example13"
+              class="form-control form-control-lg required fs-6" placeholder="username..." />
+            <!-- Mensajes de error -->
+            <div class="text-danger small"
+              *ngIf="form.get('username')?.hasError('required') && form.get('username')?.touched">
+              *Username es requerido
+            </div>
+
+          </div>
+
+          <!-- Group Email -->
+          <div class="form-outline">
+            <!-- Email label -->
+            <label class="form-label fs-6 text-light pt-2" for="form1Example13">Correo Electrónico</label>
+            <!-- Email input -->
+            <input formControlName="email" type="email" id="form1Example13"
+              class="form-control form-control-lg required fs-6" placeholder="example@gmail.com" />
+            <!-- Mensajes de error -->
+            <div class="text-danger small"
+              *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+              *Email es requerido
+            </div>
+            <div class="text-danger small" *ngIf="form.get('email')?.hasError('pattern') && form.get('email')?.touched">
+              *Email es inválido
+            </div>
+          </div>
+
+          <!-- Group Password -->
+          <div class="form-outline">
+            <!-- Label Password  -->
+            <label class="form-label fs-6 text-light pt-2" for="form1Example13">Contraseña</label>
+            <!-- Input Password -->
+            <input formControlName="password" type="password" id="form1Example13"
+              class="form-control form-control-lg m-0 required fs-6" placeholder="******" />
+            <!-- Mensajes de error -->
+            <div class="text-danger small"
+              *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched; else passwordStrong">
+              *Contraseña es requerido
+            </div>
+
+            <ng-template #passwordStrong>
+              <div class="text-danger small"
+                *ngIf="form.get('password')?.hasError('strong') && form.get('password')?.touched; else minLength">
+                *Debe tener una mayúscula, <br>
+                minúsucula, un número <br> y un caracter especial
+              </div>
+            </ng-template>
+
+            <ng-template #minLength>
+              <div class="text-danger small"
+                *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.touched">
+                *Contraseña debe tener <br> un mínimo de 8 caracteres.
+              </div>
+            </ng-template>
+
+          </div>
+
+          <!-- Group Confirm Password -->
+          <div class="form-outline mb-4">
+            <!-- Label Password  -->
+            <label class="form-label fs-6 text-light pt-2" for="form1Example13">Repite tu contraseña</label>
+            <!-- Input Password -->
+            <input formControlName="confirmPassword" type="password" id="form1Example13"
+              class="form-control form-control-lg m-0 required fs-6" placeholder="******" />
+            <!-- Mensajes de error -->
+            <div class="text-danger small"
+              *ngIf="form.get('confirmPassword')?.hasError('required') && form.get('confirmPassword')?.touched">
+              *Contraseña es requerido
+            </div>
+
+            <div class="text-danger small" *ngIf="form.hasError('notSame') && form.get('confirmPassword')?.touched">
+              *Las contraseñas no son iguales
+            </div>
+
+          </div>
+
+
+          <div class="d-flex justify-content-center">
+            <!-- Submit button -->
+            <div class="m-1">
+              <button type="button" class="btn btn-light btn-lg btn-block" routerLink="/auth/login"> Regresar
+              </button>
+            </div>
+            <div class="m-1">
+              <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="form.invalid"> Regístrate
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
