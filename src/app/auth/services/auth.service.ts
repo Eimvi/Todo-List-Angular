@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { LoginResponse } from '../interfaces/login-response.interface';
 import { Login } from '../interfaces/login.interface';
+import { Register } from '../interfaces/register.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,15 @@ export class AuthService {
         }
       })
     )
+  }
+
+  registerUser(user: Register) {
+    const newUser: Register = {
+      username: user.username,
+      email: user.email,
+      password: user.password
+    };
+    return this.http.post<void>(`${this.URL}user/create`, newUser);
   }
 
   logout(){
